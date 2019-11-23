@@ -9,6 +9,7 @@ const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 1em;
+  justify-content: space-between;
 `
 
 const OptionSubContainer = styled.div`
@@ -33,6 +34,11 @@ const Description = styled.div`
   font-size: 14px;
 `
 
+const OptionArrow = styled.img`
+  height: 36px;
+  width: 36px;
+`
+
 const Option = ({ icon, title, description }) => {
   const history = useHistory()
   return (
@@ -44,6 +50,7 @@ const Option = ({ icon, title, description }) => {
           <Description>{description}</Description>
         </OptionDescriptionContainer>
       </OptionSubContainer>
+      <OptionArrow src='arrow.svg' />
     </OptionContainer>
   )
 }

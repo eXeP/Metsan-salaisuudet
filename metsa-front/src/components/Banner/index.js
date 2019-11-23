@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Button from '../Button'
 
 const BannerContainer = styled.div`
-  height: 9em;
+  height: 12em;
   width: 100%;
   color: white;
   display: flex;
@@ -14,7 +14,7 @@ const BannerBackground = styled.div`
   position: absolute;
   background-image: url('forest.jpg');
   background-size: cover;
-  height: 9em;
+  height: 12em;
   width: 100%;
   filter: brightness(50%);
   z-index: -1;
@@ -22,19 +22,19 @@ const BannerBackground = styled.div`
 
 const BannerTitle = styled.h2`
   margin: 0;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 20px;
 `
 
 const BannerSubTitle = styled.span`
   font-size: 12px;
   font-weight: bold;
-  margin-left: 10px;
-  margin-bottom: 2em;
+  margin-left: 20px;
+  margin-bottom: 6em;
 `
 
 const ButtonContainer = styled.div`
-  margin-left: 10px;
+  margin-left: 20px;
   margin-bottom: 20px;
 `
 

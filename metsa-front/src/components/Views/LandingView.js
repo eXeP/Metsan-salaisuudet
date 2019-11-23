@@ -15,7 +15,6 @@ const OptionContainer = styled.div`
 const LandingView = () => {
   return (
     <Page>
-      <Header />
       <Banner />
       <OptionContainer>
         <Option
