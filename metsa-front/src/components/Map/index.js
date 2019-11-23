@@ -6,24 +6,13 @@ const getMapOptions = () => {
     streetViewControl: false,
     scaleControl: true,
     fullscreenControl: false,
-    styles: [
-      {
-        featureType: 'poi.business',
-        elementType: 'labels',
-        stylers: [
-          {
-            visibility: 'off'
-          }
-        ]
-      }
-    ],
     gestureHandling: 'greedy',
     disableDoubleClickZoom: true,
     minZoom: 11,
     maxZoom: 18,
     mapTypeId: 'satellite',
-    zoomControl: true,
-    clickableIcons: false
+    clickableIcons: false,
+    zoomControl: false
   }
 }
 
