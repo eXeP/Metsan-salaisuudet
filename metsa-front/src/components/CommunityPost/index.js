@@ -6,10 +6,10 @@ const PostContainer = styled.div`
   flex-direction: column;
   border: solid 1px white;
   background-color: #fafafa;
-  box-shadow: rgba(0,0,0,0.8) 0 0 5px;
+  box-shadow: rgba(0,0,0,0.4) 0 0 10px;
   border-radius: 1em;
   padding: 0em;
-  margin: 0.5em;
+  margin: 0.5em 0.5em 1em 0.5em;
 `
 
 const PostHeader = styled.div`
@@ -17,7 +17,7 @@ const PostHeader = styled.div`
   flex-direction: row;
   width: 100%;
   align-items: center;
-  padding: 0em 0em 0.5em 0em;
+  padding: 0em 0em 0em 0em;
 `
 
 const PostTitle = styled.span`
@@ -35,6 +35,7 @@ const Poster = styled.div`
   flex-direction: row-reverse;
   align-items: center;
   flex-grow: 1;
+  padding: 0.5em;
 `
 
 const PosterImg = styled.img`
@@ -45,19 +46,35 @@ const PosterImg = styled.img`
   padding: 0em 1em 0em 0.5em;
 `
 
+const LocationDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0em 0em 0.5em 0.5em;
+`
+
+const LocationIcon = styled.img`
+  width: 1.5em;
+`
+
+
+
 const CommunityPost = () => {
 
   return (
     <PostContainer>
       <PostHeader>
-        <PostTitle>Post test</PostTitle>
+        <PostTitle>Muinaisluola</PostTitle>
         <Poster>
           <PosterImg src='otto.jpg'></PosterImg>
-          <p>Otto L.</p>
+          <span>Otto L.</span>
         </Poster>
       </PostHeader>
-      
-      <PostText>lorem ipsum</PostText>
+      <LocationDiv>
+        <LocationIcon src='location.svg'></LocationIcon>
+        <span>Nuuksio, 5km</span>
+      </LocationDiv>
+      <PostText>Piilotettu esihistoriallisesti merkittävä luola.</PostText>
     </PostContainer>
   )
 }
