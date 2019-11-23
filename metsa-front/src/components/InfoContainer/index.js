@@ -15,7 +15,7 @@ const Menu = styled.div`
   ${({ isDragging }) => (!isDragging ? 'transition: transform .4s;' : '')}
 `
 
-const InfoContainer = () => {
+const InfoContainer = ({children}) => {
   const levels = {
     0: -1,
     1: window.screen.height - 40,
@@ -63,7 +63,7 @@ const InfoContainer = () => {
       onDrag={onDrag}
       position={{ x, y }}
     >
-      <Menu isDragging={isDragging}></Menu>
+      <Menu isDragging={isDragging}>{children}</Menu>
     </Draggable>
   )
 }

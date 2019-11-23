@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import LandingView from './Views/LandingView'
 import MapView from './Views/MapView'
+import CommunityView from './Views/CommunityView'
 
 const supportsHistory = 'pushState' in window.history
 
@@ -28,6 +29,7 @@ const Main = () => {
                     <Switch>
                       <Route exact path="/" component={LandingView} />
                       <Route path="/map" component={MapView} />
+                      <Route path="/community" component={CommunityView} />
                     </Switch>
                   )}
                 />
