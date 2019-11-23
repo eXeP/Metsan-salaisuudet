@@ -1,11 +1,43 @@
-import React, { useState } from 'react'
+import React from 'react'
+import styled from 'styled-components'
 import Carousel, { PagingDots } from 'nuka-carousel'
 
-const Card = ({ option: { title } }) => {
-  return <p>{title}</p>
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  height: ${Math.floor(0.3 * window.screen.height)}px;
+  width: 80%;
+  margin: auto;
+`
+
+const CardHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0.25;
+  background-color: #00b265;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+`
+
+const CardContent = styled.div`
+  flex: 0.75;
+`
+
+const Card = ({ option: { title }, finish }) => {
+  return (
+    <CardContainer>
+      <CardHeader>{title}</CardHeader>
+      <CardContent>
+        <button onClick={finish}>select</button>
+      </CardContent>
+    </CardContainer>
+  )
 }
 
-const CustomCarousel = ({ selectedRoute, setSelectedRoute, options }) => {
+const CustomCarousel = ({ finish, selectedRoute, setSelectedRoute, options }) => {
   const afterSlide = i => setSelectedRoute(i)
 
   return (
@@ -24,12 +56,11 @@ const CustomCarousel = ({ selectedRoute, setSelectedRoute, options }) => {
         bottom: 0,
         left: '50%',
         transform: 'translate(-50%)',
-        width: '100%',
-        backgroundColor: 'white'
+        width: '100%'
       }}
     >
       {options.map((option, i) => {
-        return <Card key={i} option={option} />
+        return <Card finish={finish} key={i} option={option} />
       })}
     </Carousel>
   )
