@@ -1,13 +1,42 @@
 import React from 'react'
-import Map from './Map'
-import InfoContainer from './InfoContainer'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import LandingView from './Views/LandingView'
+import MapView from './Views/MapView'
+
+const supportsHistory = 'pushState' in window.history
 
 const Main = () => {
   return (
-    <div>
-      <Map />
-      <InfoContainer />
-    </div>
+    <BrowserRouter forceRefresh={!supportsHistory}>
+      <Route
+        render={({ location }) => {
+          const { pathname } = location
+          return (
+            <TransitionGroup>
+              <CSSTransition
+                key={pathname}
+                classNames="page"
+                timeout={{
+                  enter: 1000,
+                  exit: 1000
+                }}
+              >
+                <Route
+                  location={location}
+                  render={() => (
+                    <Switch>
+                      <Route exact path="/" component={LandingView} />
+                      <Route path="/map" component={MapView} />
+                    </Switch>
+                  )}
+                />
+              </CSSTransition>
+            </TransitionGroup>
+          )
+        }}
+      />
+    </BrowserRouter>
   )
 }
 
