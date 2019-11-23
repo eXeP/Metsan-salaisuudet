@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Map from '../Map'
 import Page from '../Page'
 import InfoContainer from '../InfoContainer'
@@ -19,13 +19,30 @@ const slides = [
 const MapView = () => {
   const [selectedRoute, setSelectedRoute] = useState(0)
   const [showPicker, setShowPicker] = useState(true)
+  const [init, setInit] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setInit(true)
+    }, 100)
+  }, [])
+
   return (
     <Page>
       <Map />
-      {!showPicker ? (
-        <InfoContainer />
-      ) : (
-        <Carousel finish={() => setShowPicker(false)} options={slides} selectedRoute={selectedRoute} setSelectedRoute={setSelectedRoute} />
+      {init && (
+        <>
+          {!showPicker ? (
+            <InfoContainer />
+          ) : (
+            <Carousel
+              finish={() => setShowPicker(false)}
+              options={slides}
+              selectedRoute={selectedRoute}
+              setSelectedRoute={setSelectedRoute}
+            />
+          )}
+        </>
       )}
     </Page>
   )
