@@ -6,6 +6,7 @@ const PostContainer = styled.div`
   flex-direction: column;
   border: solid 1px white;
   background-color: #fafafa;
+  box-shadow: rgba(0,0,0,0.8) 0 0 10px;
   border-radius: 1em;
   padding: 0em;
   margin: 0.5em;

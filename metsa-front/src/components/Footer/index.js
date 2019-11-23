@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import {
+  BrowserRouter as Router,
+  Link
+} from "react-router-dom";
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -56,12 +60,14 @@ const Footer = () => {
         icon="map.svg"
         content="Own adventures"
       />
-      <FooterButton
-        onClick={() => setActiveIndex(2)}
-        active={activeIndex === 2}
-        icon="community.svg"
-        content="Community"
-      />
+      <Link to="/community">
+        <FooterButton
+          onClick={() => setActiveIndex(2)}
+          active={activeIndex === 2}
+          icon="community.svg"
+          content="Community"
+        />
+      </Link>
     </FooterContainer>
   )
 }
