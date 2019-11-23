@@ -66,7 +66,7 @@ const CommunityPost = () => {
       <PostHeader>
         <PostTitle>Muinaisluola</PostTitle>
         <Poster>
-          <PosterImg src='otto.jpg'></PosterImg>
+          <PosterImg src='https://source.unsplash.com/512x512/?face'></PosterImg>
           <span>Otto L.</span>
         </Poster>
       </PostHeader>
