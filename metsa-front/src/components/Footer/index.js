@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import {
-  BrowserRouter as Router,
-  Link
-} from "react-router-dom";
+import { useHistory } from 'react-router-dom'
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -35,9 +32,14 @@ const FooterButtonTitle = styled.span`
   opacity: ${({ active }) => (active ? 1 : 0.5)};
 `
 
-const FooterButton = ({ onClick, icon, content, active = false }) => {
+const FooterButton = ({ to, onClick, icon, content, active = false }) => {
+  const history = useHistory()
+  const handleClick = () => {
+    if (to) history.push({ pathname: to, state: { prev: true } })
+    onClick()
+  }
   return (
-    <FooterButtonContainer onClick={onClick}>
+    <FooterButtonContainer onClick={handleClick}>
       <FooterButtonIcon active={active} src={icon} />
       <FooterButtonTitle active={active}>{content}</FooterButtonTitle>
     </FooterButtonContainer>
@@ -60,14 +62,13 @@ const Footer = () => {
         icon="map.svg"
         content="Own adventures"
       />
-      <Link to="/community">
-        <FooterButton
-          onClick={() => setActiveIndex(2)}
-          active={activeIndex === 2}
-          icon="community.svg"
-          content="Community"
-        />
-      </Link>
+      <FooterButton
+        onClick={() => setActiveIndex(2)}
+        active={activeIndex === 2}
+        icon="community.svg"
+        content="Community"
+        to='community'
+      />
     </FooterContainer>
   )
 }

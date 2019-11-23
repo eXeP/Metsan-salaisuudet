@@ -16,14 +16,12 @@ const getMapOptions = () => {
   }
 }
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>
-
 const SimpleMap = () => {
   const center = {
-    lat: 59.95,
-    lng: 30.33
+    lat: 60.22474105,
+    lng: 25.14025011
   }
-  const zoom = 11
+  const zoom = 16
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
@@ -32,7 +30,6 @@ const SimpleMap = () => {
         defaultZoom={zoom}
         options={getMapOptions()}
       >
-        <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
       </GoogleMapReact>
     </div>
   )
